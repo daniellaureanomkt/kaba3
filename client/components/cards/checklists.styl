@@ -42,11 +42,10 @@ textarea.js-add-checklist-item, textarea.js-edit-checklist-item
   .js-delete-checklist
     @extends .delete-text
 
-  span.fa.checklist-handle
+  .checklist-handle
     padding-right: 20px
     padding-top: 6px
     float: right
-
 
 .js-confirm-checklist-delete
   background-color: darken(white, 3%)
@@ -155,6 +154,11 @@ textarea.js-add-checklist-item, textarea.js-edit-checklist-item
         display: block
         word-wrap: break-word
         max-width: 420px
+
+  .checklistitem-handle
+    padding-right: 73px
+    padding-top: 6px
+    float: right
 
 .js-delete-checklist-item
   margin: 0 0 0.5em 1.33em

@@ -4,12 +4,12 @@ function initSorting(items) {
   items.sortable({
     tolerance: 'pointer',
     helper: 'clone',
-    items: '.js-checklist-item:not(.placeholder)',
+    items: '.js-checklist-item',
     connectWith: '.js-checklist-items',
     appendTo: '.board-canvas',
     distance: 7,
     placeholder: 'checklist-item placeholder',
-    scroll: false,
+    //scroll: false,
     start(evt, ui) {
       ui.placeholder.height(ui.helper.height());
       EscapeActions.executeUpTo('popup-close');
@@ -55,11 +55,7 @@ BlazeComponent.extendComponent({
     self.autorun(() => {
       const $itemsDom = $(self.itemsDom);
       if ($itemsDom.data('uiSortable') || $itemsDom.data('sortable')) {
-        $(self.itemsDom).sortable(
-          'option',
-          'disabled',
-          !userIsMember() || Utils.isMiniScreen(),
-        );
+        $(self.itemsDom).sortable('option', 'disabled', !userIsMember());
       }
     });
   },

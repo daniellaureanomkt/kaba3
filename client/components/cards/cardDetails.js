@@ -256,8 +256,12 @@ BlazeComponent.extendComponent({
         $checklistsDom.data('sortable')
       ) {
         $checklistsDom.sortable('option', 'disabled', disabled);
-        if (Utils.isMiniScreenOrShowDesktopDragHandles()) {
-          $checklistsDom.sortable({ handle: '.checklist-handle'});
+        if (Utils.isMiniScreen()) {
+          $checklistsDom.sortable({ handle: '.checklist-handle' });
+        } else if (Utils.isShowDesktopDragHandles()) {
+          $checklistsDom.sortable({ handle: '.checklist-handle' });
+        } else {
+          $checklistsDom.sortable({ handle: '.checklist-title' });
         }
       }
       if ($subtasksDom.data('uiSortable') || $subtasksDom.data('sortable')) {
